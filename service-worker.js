@@ -7,6 +7,10 @@
 'use strict';
 importScripts('./build/sw-toolbox.js');
 
+self.addEventListener('install', event => {
+  self.skipWaiting();
+});
+
 self.toolbox.options.cache = {
   name: 'ionic-cache'
 };
