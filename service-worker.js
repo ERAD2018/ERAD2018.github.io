@@ -29,3 +29,9 @@ self.toolbox.router.any('/*', self.toolbox.fastest);
 // for any other requests go to the network, cache,
 // and then only use that cached resource if your user goes offline
 self.toolbox.router.default = self.toolbox.networkFirst;
+
+this.addEventListener('install', function(event){
+  event.waitUntil(
+    indexedDB.deleteDatabase('ngForage')
+  );
+});
